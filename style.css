@@ -1,0 +1,26 @@
+body{
+    background-color: blueviolet;
+}
+h1{
+    text-align: center;
+}
+#board{
+    width: 45%;
+    height: 35em;
+    display: flex;
+    margin:0 auto;
+    flex-wrap: wrap;
+    background-color: yellow;
+    justify-content: space-evenly;
+}
+#box0,#box1,#box2,#box3,#box4,#box5,#box6,#box7,#box8{
+    min-width: 30%;
+    max-height: 30%;
+    height: auto;
+    text-align: center;
+    margin: 5px;
+    background-color: white;
+    line-height: 2.5em;
+    font-size: 4em;
+    
+}
