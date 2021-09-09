@@ -1,3 +1,4 @@
+
 let player='X';
 
 let b={};
@@ -18,9 +19,29 @@ for(let i=0;i<9;i++)
         b[`box${i}`]=cell.innerText;
         if (checkBoard())
         {
-            alert(`${player} won`);
-
+            board.innerHTML="";
+            let popup=document.createElement('p');
+            popup.innerText=`Player ${player} won.`;
+            popup.style.fontSize='5em';
+            popup.style.border="3px groove red";
+            popup.style.height="30%";
+            let img=document.createElement('img');
+            img.src="pikachu.jpg";
+            board.appendChild(popup);
+            board.appendChild(img);
         } 
+        else if(ifTie())
+        {
+            board.innerText="";
+            let popup=document.createElement('p');
+            popup.innerText=`It's a Tie.`;
+            popup.style.fontSize='5em';
+            let img=document.createElement('img');
+            img.src="sadpika.png";
+            img.style.height="55%";
+            board.appendChild(popup);
+            board.appendChild(img);
+        }
         player=player=='X'?'O':'X';
 
         }
@@ -46,12 +67,16 @@ function checkBoard()
         return true;
     else if (b['box2']==b['box4']&&b['box4']==b['box6']&&b['box4']!=':)')
         return true;
-    return false;
-
-
-
-
-
-
-        
+    return false;      
+}
+function ifTie()
+{
+    for(let i=0;i<9;i++)
+    {
+        if (b[`box${i}`]==':)')
+        {
+            return false;
+        }
+    }
+    return true;
 }
